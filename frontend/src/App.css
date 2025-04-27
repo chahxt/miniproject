@@ -1,0 +1,224 @@
+/* src/App.css */
+
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #f7fafc, #e2e8f0); /* Soft gradient */
+  color: #333;
+  height: 100%;
+}
+
+/* Main container */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f7fafc;
+}
+
+/* Navigation bar styling */
+nav {
+  background-color: #3182ce; /* Blue background */
+  color: white;
+  padding: 16px 32px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+nav li {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #2b6cb0;
+  transform: translateY(-2px); /* Slight hover effect */
+}
+
+/* Page content */
+.p-4 {
+  padding: 16px;
+}
+
+/* Homepage, RegisterPage, and Dashboard page styles */
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* Chart container */
+.chart-container {
+  max-width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.chart-container:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* For chart itself */
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+}
+
+/* Dashboard specific styling */
+.dashboard-header {
+  font-size: 2.2rem;
+  color: #3182ce;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.dashboard-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #718096;
+  font-weight: 600;
+}
+
+/* Register form styles */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-container input {
+  padding: 12px;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-container input:focus {
+  border-color: #3182ce;
+}
+
+.form-container button {
+  padding: 12px;
+  width: 100%;
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #2b6cb0;
+  transform: translateY(-3px);
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.bg-gray-100 {
+  background-color: #f7fafc;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.space-x-4 {
+  display: flex;
+  gap: 16px;
+}
+
+.bg-blue-600 {
+  background-color: #3182ce;
+}
+
+.text-white {
+  color: white;
+}
+
+.hover\:text-gray-200:hover {
+  color: #edf2f7;
+}
+
+/* Small screen responsiveness */
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .chart-container {
+    padding: 10px;
+  }
+}
