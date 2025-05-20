@@ -1,45 +1,32 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// src/App.js
-
-// src/MainApp.js
-
-// src/MainApp.js
-
-// src/MainApp.js
 import React, { useState } from 'react';
-import { Route, Routes, Link } from 'react-router-dom';  // Routing for multiple pages
-import Homepage from './pages/Homepage';  // Homepage component
-import RegisterPage from './pages/RegisterPage';  // Register page component
-import DashboardPage from './pages/DashboardPage';  // DashboardPage component
-import './App.css';  // Import your own styling (if needed)
+import { Route, Routes, Link, useNavigate } from 'react-router-dom'; // Routing
+import Homepage from './pages/Homepage';
+import RegisterPage from './pages/RegisterPage';
+import DashboardPage from './pages/DashboardPage';
+import LoginPage from './pages/LoginPage';  // Import LoginPage component
+import './App.css'; // Your custom styles
 
 function MainApp() {
-  const [user, setUser] = useState(null);  // State for user (optional)
+  const [user, setUser] = useState(null); // Optional user state (check for logged-in user)
+
+  const navigate = useNavigate();
+
+  // Handle login (you can set user data here after successful login)
+  const handleLogin = (userData) => {
+    setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
+    navigate('/dashboard');
+  };
+
+  // Handle logout
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
+
+  // Check if the user is logged in
+  const loggedInUser = user || JSON.parse(localStorage.getItem('user'));
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -51,17 +38,34 @@ function MainApp() {
           <li>
             <Link to="/register" className="hover:text-gray-200">Register</Link>
           </li>
-          <li>
-            <Link to="/dashboard" className="hover:text-gray-200">Dashboard</Link>
-          </li>
+          {loggedInUser && (
+            <li>
+              <Link to="/dashboard" className="hover:text-gray-200">Dashboard</Link>
+            </li>
+          )}
+          {loggedInUser ? (
+            <li>
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-white"
+              >
+                Logout
+              </button>
+            </li>
+          ) : (
+            <li>
+              <Link to="/login" className="hover:text-gray-200">Login</Link>
+            </li>
+          )}
         </ul>
       </nav>
 
       <div className="p-4">
         <Routes>
-          <Route path="/" element={<Homepage />} />  {/* Home page route */}
-          <Route path="/register" element={<RegisterPage />} />  {/* Register page route */}
-          <Route path="/dashboard" element={<DashboardPage />} />  {/* Dashboard page route */}
+          <Route path="/" element={<Homepage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/login" element={<LoginPage />} /> {/* Add route for LoginPage */}
         </Routes>
       </div>
     </div>

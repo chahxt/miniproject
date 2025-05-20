@@ -17,18 +17,34 @@
 // reportWebVitals();
 // src/index.js
 
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import './index.css';  // TailwindCSS or any styles you may have
+// import MainApp from './MainApp';  // Importing MainApp.js instead of App.js
+// import { BrowserRouter } from 'react-router-dom';  // For routing
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
+//     <BrowserRouter>
+//       <MainApp />  {/* Render the MainApp component */}
+//     </BrowserRouter>
+//   </React.StrictMode>
+// );
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';  // TailwindCSS or any styles you may have
-import MainApp from './MainApp';  // Importing MainApp.js instead of App.js
-import { BrowserRouter } from 'react-router-dom';  // For routing
+import './index.css'; // TailwindCSS or any styles
+import MainApp from './MainApp';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <MainApp />  {/* Render the MainApp component */}
+      <MainApp />
     </BrowserRouter>
   </React.StrictMode>
 );
+
 
