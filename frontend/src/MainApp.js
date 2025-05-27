@@ -1,75 +1,85 @@
-import React, { useState } from 'react';
-import { Route, Routes, Link, useNavigate } from 'react-router-dom'; // Routing
+
+
+
+// import React from 'react';
+// import { Route, Routes } from 'react-router-dom';
+// import LandingPage from './pages/LandingPage';
+// import Homepage from './pages/Homepage';
+// import RegisterPage from './pages/RegisterPage';
+// import DashboardPage from './pages/DashboardPage';
+// import LoginPage from './pages/LoginPage';
+// import UsersPage from './pages/UsersPage';
+// import SettingsPage from './pages/SettingsPage';
+// import SidebarLayout from './SidebarLayout';
+// import ProtectedRoutes from './ProtectedRoutes';
+
+// // NEW: Import the Semantic Gap Analyzer Page
+// import SemanticGapAnalyzerPage from './pages/SemanticGapAnalyzerPage';
+// // NEW: Import the SERP Feature Assessment Page
+// import SerpFeatureAssessmentPage from './pages/SerpFeatureAssessmentPage';
+
+// export default function MainApp() {
+//   return (
+//     <Routes>
+//       {/* Landing Page */}
+//       <Route path="/" element={<LandingPage />} />
+
+//       {/* Sidebar pages (protected inside) */}
+//       <Route path="/app" element={<SidebarLayout />}>
+//         <Route element={<ProtectedRoutes />}>
+//           <Route index element={<Homepage />} />
+//           <Route path="dashboard" element={<DashboardPage />} />
+//           <Route path="users" element={<UsersPage />} />
+//           <Route path="settings" element={<SettingsPage />} />
+
+//           {/* Semantic Gap Analyzer Route */}
+//           <Route path="semantic-gap" element={<SemanticGapAnalyzerPage />} />
+//           {/* NEW: SERP Features Route */}
+//           <Route path="serp-features" element={<SerpFeatureAssessmentPage />} />
+//         </Route>
+//         <Route path="login" element={<LoginPage />} />
+//         <Route path="register" element={<RegisterPage />} />
+//       </Route>
+//     </Routes>
+//   );
+// }
+
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
 import Homepage from './pages/Homepage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
-import LoginPage from './pages/LoginPage';  // Import LoginPage component
-import './App.css'; // Your custom styles
+import LoginPage from './pages/LoginPage';
+import UsersPage from './pages/UsersPage';
+import SettingsPage from './pages/SettingsPage';
+import SidebarLayout from './SidebarLayout';
+import ProtectedRoutes from './ProtectedRoutes';
 
-function MainApp() {
-  const [user, setUser] = useState(null); // Optional user state (check for logged-in user)
+import SemanticGapAnalyzerPage from './pages/SemanticGapAnalyzerPage';
+import SerpFeatureAssessmentPage from './pages/SerpFeatureAssessmentPage';
+import SecurityHealthCheckPage from './pages/SecurityHealthCheckPage'; // << NEW
 
-  const navigate = useNavigate();
-
-  // Handle login (you can set user data here after successful login)
-  const handleLogin = (userData) => {
-    setUser(userData);
-    localStorage.setItem('user', JSON.stringify(userData));
-    navigate('/dashboard');
-  };
-
-  // Handle logout
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem('user');
-    navigate('/login');
-  };
-
-  // Check if the user is logged in
-  const loggedInUser = user || JSON.parse(localStorage.getItem('user'));
-
+export default function MainApp() {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <nav className="bg-blue-600 text-white p-4">
-        <ul className="flex space-x-4">
-          <li>
-            <Link to="/" className="hover:text-gray-200">Home</Link>
-          </li>
-          <li>
-            <Link to="/register" className="hover:text-gray-200">Register</Link>
-          </li>
-          {loggedInUser && (
-            <li>
-              <Link to="/dashboard" className="hover:text-gray-200">Dashboard</Link>
-            </li>
-          )}
-          {loggedInUser ? (
-            <li>
-              <button
-                onClick={handleLogout}
-                className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-white"
-              >
-                Logout
-              </button>
-            </li>
-          ) : (
-            <li>
-              <Link to="/login" className="hover:text-gray-200">Login</Link>
-            </li>
-          )}
-        </ul>
-      </nav>
+    <Routes>
+      {/* Landing Page */}
+      <Route path="/" element={<LandingPage />} />
 
-      <div className="p-4">
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/login" element={<LoginPage />} /> {/* Add route for LoginPage */}
-        </Routes>
-      </div>
-    </div>
+      {/* Sidebar pages (protected inside) */}
+      <Route path="/app" element={<SidebarLayout />}>
+        <Route element={<ProtectedRoutes />}>
+          <Route index element={<Homepage />} />
+          <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="users" element={<UsersPage />} />
+          <Route path="settings" element={<SettingsPage />} />
+          <Route path="semantic-gap" element={<SemanticGapAnalyzerPage />} />
+          <Route path="serp-features" element={<SerpFeatureAssessmentPage />} />
+          <Route path="security-check" element={<SecurityHealthCheckPage />} /> {/* NEW */}
+        </Route>
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+      </Route>
+    </Routes>
   );
 }
-
-export default MainApp;

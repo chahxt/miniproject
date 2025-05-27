@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+.users-page {
+  min-height: 100vh;
+  padding: 50px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(120deg, #0b111c 70%, #050e18 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.users-title {
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-size: 2.3rem;
+  color: #03fff7;
+  text-shadow: 0 0 25px #03fff7, 0 0 7px #fff, 0 0 6px #15c0ee;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 26px;
+  text-align: center;
+  animation: fadeInUp 0.7s;
+}
+
+.profile-box {
+  background: rgba(8,20,40,0.87);
+  border: 2px solid #03fff7cc;
+  box-shadow: 0 0 24px #03fff788;
+  border-radius: 20px;
+  padding: 38px 30px 28px 30px;
+  min-width: 340px;
+  max-width: 440px;
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeInUp 1.2s cubic-bezier(.22, .7, .42, 1);
+  position: relative;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.profile-label {
+  flex: 0 0 95px;
+  color: #03fff7;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.profile-value {
+  flex: 1;
+  color: #eafaff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  padding-left: 9px;
+  text-shadow: 0 0 7px #03fff733;
+}
+
+.profile-form .profile-input {
+  flex: 1;
+  padding: 9px 14px;
+  font-size: 1rem;
+  background: #141e27;
+  border: 1.5px solid #03fff7cc;
+  color: #03fff7;
+  border-radius: 7px;
+  outline: none;
+  transition: border-color 0.22s, box-shadow 0.21s;
+  margin-left: 9px;
+  box-shadow: 0 0 10px #03fff73a;
+}
+.profile-form .profile-input:focus {
+  border-color: #00e5ff;
+  box-shadow: 0 0 12px #03fff7aa;
+}
+
+.action-btn {
+  padding: 11px 22px;
+  background: linear-gradient(90deg, #03fff7 70%, #00e5ff 100%);
+  color: #1c222f;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.03rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.11s, box-shadow 0.15s, transform 0.12s;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px #03fff788;
+}
+.action-btn:hover {
+  background: linear-gradient(90deg, #00e5ff 80%, #03fff7 100%);
+  color: #fff;
+  box-shadow: 0 0 12px #03fff7cc, 0 0 4px #03fff799;
+  transform: translateY(-2px) scale(1.03);
+}
+.action-btn.danger {
+  background: linear-gradient(90deg, #ff3057, #ff76a3);
+  color: #fff;
+  box-shadow: 0 0 8px #ff305799;
+}
+.action-btn.danger:hover {
+  background: linear-gradient(90deg, #ff76a3, #ff3057);
+  color: #fff;
+}
+
+.settings-msg {
+  background: #031a17;
+  color: #00e5ff;
+  border: 1.7px solid #03fff7cc;
+  border-radius: 8px;
+  padding: 10px 0;
+  margin-top: 18px;
+  text-align: center;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  animation: fadeInUp 0.6s;
+}
+
+/* Responsive for mobile */
+@media (max-width: 700px) {
+  .profile-box {
+    padding: 18px 7px 16px 7px;
+    min-width: 95vw;
+    max-width: 97vw;
+  }
+  .users-title {
+    font-size: 1.4rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to   { opacity: 1; transform: none;}
+}

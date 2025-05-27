@@ -1,82 +1,216 @@
-/* Dashboard.css – Styled to match Homepage theme */
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #6a1b9a, #000);
-  color: white;
+.dashboard-page {
   min-height: 100vh;
-  padding: 30px;
-}
-
-/* Page Title */
-.dashboard-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #a855f7;
-  text-align: center;
-  margin-bottom: 40px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-/* Section Box */
-.section-box {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  margin-bottom: 40px;
-}
-
-/* Section Headings */
-.section-title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #a855f7;
-}
-
-/* Subheadings */
-.sub-title {
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #f3e8ff;
-}
-
-/* Paragraph Text */
-.section-box p {
-  color: #d1d5db;
-  margin-bottom: 10px;
-}
-
-/* Chart Container */
-.chart-wrapper {
+  background: none;
+  padding: 38px 0 0 0;
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-title {
+  font-size: 2.7rem;
+  font-weight: bold;
+  color: #00ffd0;
+  text-shadow: 0 0 24px #00ffd0, 0 0 8px #fff, 0 0 6px #a855f7;
+  letter-spacing: 1.5px;
+  margin-bottom: 36px;
+  animation: glow 2.5s infinite alternate;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 20px #00ffd0, 0 0 8px #fff; }
+  50% { text-shadow: 0 0 40px #00ffd0, 0 0 24px #a855f7; }
+}
+
+.dashboard-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 36px;
 }
 
-/* Button */
+.dashboard-stat-card {
+  min-width: 190px;
+  max-width: 270px;
+  min-height: 135px;
+  padding: 28px 28px 20px 28px;
+  border-radius: 19px;
+  box-shadow: 0 8px 40px #00ffd055, 0 2px 28px #a855f7aa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.25s, transform 0.15s;
+  border: 1.4px solid #00ffd044;
+  position: relative;
+  background-blend-mode: overlay;
+  animation: fadein 0.85s;
+}
+
+.dashboard-stat-card:hover {
+  transform: scale(1.04) translateY(-5px);
+  box-shadow: 0 0 42px #00ffd088, 0 2px 32px #a855f799;
+}
+
+.dashboard-stat-icon {
+  font-size: 2.3rem;
+  margin-bottom: 7px;
+  filter: drop-shadow(0 0 10px #fff3);
+}
+
+.dashboard-stat-value {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 8px #00ffd088, 0 0 1px #fff;
+}
+
+.dashboard-stat-label {
+  font-size: 1.09rem;
+  margin-top: 4px;
+  color: #17141d;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-align: center;
+  text-shadow: 0 0 2px #fff;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(45px) scale(1.13);}
+  to { opacity: 1; transform: none;}
+}
+.animate-glow { animation: glow 2.2s infinite alternate; }
+.animate-fadein { animation: fadein 0.92s both; }
+
+/* --- New chart/flex layout --- */
+.dashboard-section {
+  width: 100%;
+  max-width: 860px;
+  margin: 32px auto 0 auto;
+  background: linear-gradient(90deg, #191933 70%, #00ffd015 100%);
+  padding: 28px 34px 18px 34px;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #00ffd025;
+  border: 1.2px solid #a855f75c;
+  margin-bottom: 25px;
+}
+
+.dashboard-section-title {
+  color: #00ffd0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px #a855f7, 0 0 2px #00ffd0;
+}
+
+.dashboard-section-desc {
+  color: #e0e0e0;
+  font-size: 1.07rem;
+  margin-bottom: 2px;
+}
+
+.dashboard-charts-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
+.dashboard-chart-box {
+  width: 250px;
+  height: 230px;
+  background: #18182688;
+  border-radius: 14px;
+  padding: 16px 10px;
+  margin-bottom: 6px;
+  box-shadow: 0 0 22px #00ffd018;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-results {
+  flex: 1;
+  font-size: 1.08rem;
+  color: #c9c9e0;
+  margin-left: 16px;
+  margin-top: 6px;
+}
+
+.dashboard-footer {
+  margin: 28px 0 0 0;
+  text-align: center;
+}
+
 .download-btn {
-  background-color: #6a1b9a;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
+  background: linear-gradient(90deg, #00ffd0, #a855f7 75%);
+  padding: 15px 38px;
+  border-radius: 24px;
   border: none;
+  color: #181818;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1.15rem;
+  font-weight: 700;
+  box-shadow: 0 0 24px #a855f7cc, 0 0 7px #00ffd099;
+  transition: background 0.24s, color 0.2s, box-shadow 0.22s, transform 0.12s;
+  letter-spacing: 1px;
 }
-
 .download-btn:hover {
-  background-color: #4a148c;
+  background: linear-gradient(to right, #a855f7, #00ffd0 90%);
+  color: #fff;
+  box-shadow: 0 0 42px #00ffd0, 0 0 20px #a855f7;
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* Optional: Responsive Container */
-@media (max-width: 768px) {
-  .chart-wrapper {
+.dashboard-news {
+  width: 100%;
+  max-width: 600px;
+  background: linear-gradient(90deg, #101018 70%, #00ffd022 100%);
+  margin: 28px auto 18px auto;
+  padding: 22px 30px 14px 30px;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px #00ffd012;
+  border: 1px solid #a855f745;
+}
+.dashboard-news ul {
+  list-style: disc inside;
+  color: #d0d0d0;
+  padding-left: 12px;
+  font-size: 1.05rem;
+}
+.dashboard-news a {
+  color: #00ffd0;
+  text-decoration: underline;
+}
+.dashboard-news .highlight {
+  color: #a855f7;
+  font-weight: bold;
+  background: #fff2;
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+@media (max-width: 900px) {
+  .dashboard-card-row {
     flex-direction: column;
-    align-items: center;
+    gap: 18px;
+  }
+  .dashboard-section, .dashboard-news {
+    max-width: 98vw;
+    padding: 12px 7px;
+    border-radius: 12px;
+  }
+  .dashboard-charts-flex {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .dashboard-results {
+    margin-left: 0;
+    margin-top: 10px;
   }
 }

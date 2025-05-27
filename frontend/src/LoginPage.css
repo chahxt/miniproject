@@ -1,72 +1,123 @@
-/* LoginPage.css */
-
 body {
-  background-color: #f3f4f6;
-  font-family: 'Arial', sans-serif;
-}
-
-input {
-  background-color: #1e1e1e;
-  border: 1px solid #6a0dad;
-  border-radius: 8px;
-  color: white;
-  padding: 1rem;
-}
-
-input::placeholder {
-  color: #9b59b6;
-}
-
-button {
-  background-color: #9b59b6;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #8e44ad;
-}
-
-h2 {
-  color: #9b59b6;
-}
-
-p {
-  color: #b39ddb;
+  background: linear-gradient(135deg, #090a0f 65%, #181a1f 100%);
+  font-family: 'Orbitron', 'Segoe UI', 'Arial', sans-serif;
+  color: #e0e0e0;
+  margin: 0;
+  min-height: 100vh;
 }
 
 .bg-gradient {
-  background: linear-gradient(to top right, #3b0a45, #5e2a84);
-  padding: 50px;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #0e1016 80%, #171a21 100%);
+  padding: 60px;
+  border-radius: 15px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.input-field {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  border: 1px solid #6a0dad;
-  padding: 10px;
+form {
+  background-color: #10131a;
+  border-radius: 12px;
+  padding: 2rem 2.2rem;
+  box-shadow: 0 8px 34px #04fafd44, 0 1.5px 8px #43e2ee99;
+  border: 2px solid #04fafd55;
+  min-width: 310px;
+  max-width: 95vw;
+}
+
+h2 {
+  color: #04fafd;
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-shadow: 0 0 14px #04fafd77;
+  letter-spacing: 1px;
+}
+
+p {
+  color: #b7c7d6;
+  font-size: 1.07rem;
+  margin-top: 0.7rem;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 12px 0;
+  background-color: #181b22;
+  border: 2px solid #04fafd;
   border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.input-field:focus {
+  color: #fff;
+  font-size: 1.04rem;
   outline: none;
-  border: 1px solid #9b59b6;
+  transition: border 0.19s, box-shadow 0.21s;
+}
+input::placeholder {
+  color: #43e2eeaa;
+}
+input:focus {
+  border: 2px solid #43e2ee;
+  box-shadow: 0 0 10px #43e2ee88;
 }
 
 button {
-  background-color: #9b59b6;
-  padding: 15px;
-  border-radius: 8px;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(90deg, #04fafd, #43e2ee 80%);
+  color: #101828;
+  border-radius: 9px;
+  font-size: 1.13rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.3s;
+  border: none;
+  transition: background 0.2s, color 0.13s, box-shadow 0.22s, transform 0.11s;
+  box-shadow: 0 0 18px #04fafd66;
+  margin-top: 10px;
+}
+button:hover {
+  background: linear-gradient(90deg, #43e2ee 60%, #04fafd 100%);
+  color: #fff;
+  box-shadow: 0 0 24px #04fafd, 0 0 14px #43e2ee;
+  transform: translateY(-2px) scale(1.04);
 }
 
-button:hover {
-  background-color: #8e44ad;
+/* Decorative SVG blobs (if you use them in JSX) */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  background: #04fafd;
+  opacity: 0.09;
+}
+
+.blob-1 {
+  width: 95px;
+  height: 95px;
+  top: 0;
+  left: 0;
+  animation: pulse 3s infinite ease-out;
+}
+.blob-2 {
+  width: 110px;
+  height: 110px;
+  bottom: 0;
+  right: 0;
+  animation: ping 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.08;}
+  50% { transform: scale(1.22); opacity: 0.23;}
+  100% { transform: scale(1); opacity: 0.08;}
+}
+@keyframes ping {
+  0% { transform: scale(1); opacity: 0.10;}
+  50% { transform: scale(1.4); opacity: 0.27;}
+  100% { transform: scale(1); opacity: 0.10;}
+}
+
+@media (max-width: 640px) {
+  .bg-gradient { padding: 10px; border-radius: 7px; }
+  form { min-width: 97vw; padding: 10px; border-radius: 8px; }
+  h2 { font-size: 1.35rem; }
 }

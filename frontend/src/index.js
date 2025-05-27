@@ -34,7 +34,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css'; // TailwindCSS or any styles
+import './index.css'; 
 import MainApp from './MainApp';
 import { BrowserRouter } from 'react-router-dom';
 
